@@ -1,0 +1,23 @@
+@media (min-width: 768px) {
+  .calculatorWrapper, .calculator {
+    display: flex;
+  }
+}
+
+@media (max-width: 767px) {
+  .calculator {
+    width: 60%;
+  }
+  .chart {
+    height: auto;
+    width: 100%;
+  }
+  .main {
+    padding: 1rem;
+  }
+
+  .sidePannel {
+    width: 60%;
+    margin-top: 20px;
+  }
+}
