@@ -3,7 +3,7 @@ import Collapsible from 'react-collapsible';
 import { HiOutlineChevronDown, HiOutlineChevronUp } from "react-icons/hi";
 
 
-export default function CollapsibleBox({ heading, content = "", isFormula = false, isLast = false, isSidePanel = false }) {
+export default function CollapsibleBox({ children,heading, content = "", isFormula = false, isLast = false, isSidePanel = false }) {
 
   let weight = 500;
   let index = 0;
@@ -27,7 +27,7 @@ export default function CollapsibleBox({ heading, content = "", isFormula = fals
         triggerWhenOpen={[<div className='pr-[15px]' key='siCollapsible'>{heading}</div>, <HiOutlineChevronUp key='siCollapsible' style={{ flexShrink: 0, color: '#005CFF', width: '18px', height: '18px', marginRight: "-10px" }} />]}
         triggerStyle={style}
       >
-        {!isFormula ? <div className='font-normal mb-[20px] text-[#464143]'>{content}</div> :
+        {!isFormula ? <div className='font-normal mb-[20px] text-[#464143]'>{content}{children}</div> :
           <div>
 
           </div>}
