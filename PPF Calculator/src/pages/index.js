@@ -36,7 +36,7 @@ export default function Home() {
     setTotalInvestmentString(totalInvestment.toLocaleString("en-In"));
     setTimePeriodString(timePeriod);
     setInterestRateString(interestRate);
-    compoundInterest = Math.round(totalInvestment * Math.pow(1.0 + ((interestRate / 100.0) / compoundingFrequency), compoundingFrequency * timePeriod));
+    compoundInterest =Math.ceil(totalInvestment*((((Math.pow(1.0710,timePeriod)))-1)/(0.0710)));
     if (compoundInterest === Infinity || isNaN(compoundInterest)) {
       setOutput(0);
     }
@@ -53,7 +53,7 @@ export default function Home() {
     let points = [];
     points.push(totalInvestment);
     for (let i = 1; i <= timePeriod; i++) {
-        compoundInterest = Math.floor(totalInvestment * Math.pow(1.0 + ((Number(interestRate) / 100.0) / compoundingFrequency), compoundingFrequency * i));
+        compoundInterest =Math.ceil(totalInvestment*((((Math.pow(1.0710,timePeriod)))-1)/(0.0710)));
         console.log(compoundInterest);
         points.push(compoundInterest);
     }
@@ -376,6 +376,20 @@ export default function Home() {
             </CollapsibleBox>
 
 
+            <CollapsibleBox
+              heading={'Maturity value of the investment'}
+              content={'You can easily calculate the maturity value of your investment by using the FundsIndia PPF calculator.'}
+            />
+
+            <CollapsibleBox
+              heading={'Lock-in Period'}
+              content={'The funds invested in a PPF account have a lock-in period of 15 years and the maturity period is 15 years from the date of opening the account.'}
+            />
+
+
+
+
+
 
 
 
@@ -389,100 +403,52 @@ export default function Home() {
           }
         >
           <CollapsibleBox
-            heading={'What is Compound Interest?'}
-            content={'Compound interest is a financial concept that refers to the interest on a loan or deposit calculated based on both the initial principal amount and the accumulated interest from previous periods. In other words, the interest earned in a given period is added to the principal, and the total balance is used as the basis for calculating the interest in the next period. This process continues over time, causing the balance to grow at an exponential rate.'}
+            heading={'What is Public Provident Fund?'}
+            content={'Public Provident Fund (PPF) is a long-term savings scheme offered by the government of India. It is a tax-free investment option that provides an individual with a secure and low-risk investment option.'}
           />
 
           <CollapsibleBox
-            heading={'How to use the Compound Interest Calculator?'}
-            content={'FundsIndia Compound Interest Calculator is very easy to use. Just plugin the principal amount, interest rate,compounding frequency, and tenure. The calculator will give you accurate results regardless of currency.'}
+            heading={'What is the lock-in period of PPF investment?'}
+            content={'The funds invested in a PPF account have a lock-in period of 15 years and the maturity period is 15 years from the date of opening the account.'}
           />
+
+          <CollapsibleBox
+            heading={'What is the minimum investment'}
+            content={'The minimum investment in a PPF account is Rs. 500 and the maximum investment is Rs. 1.5 Lakhs per financial year.'}
+          />
+
+         <CollapsibleBox
+            heading={'What are the tax implications of a PPF investment?'}
+            content={'The interest earned and the maturity amount are exempt from tax under Indian Income Tax laws.'}
+          />
+
+          <CollapsibleBox
+            heading={'How can you use the PPF calculator?'}
+            content={'The calculator takes into account the amount of contribution made and the duration of investment, and provides an estimate of the total amount that will be accumulated at maturity. Just plug-in the required values'}
+          />
+
 
             <CollapsibleBox
 
-             heading={'How does the Compound Interest calculator work?'}
+             heading={''}
              content={
               <>
-            <div className="mb-[10px]">It uses the following logic</div>
+            <div className="mb-[10px]">The PPF calculator takes 2 inputs namely, Yearly investment and tenure of investment.
+          It uses the following logic
+         </div>
+         <div className={"font-semibold flex items-center "}> The formula for this is: F = P[({'{'}(1+i)^n{'}'}-1)/i]</div>
 
-            <div className={"font-semibold flex items-center "}>
-            <div>Compound interest formula = </div>
-            <div className="flex items-center">
-            <div className="flex h-[42px] w-[8px] text-[39px] font-light items-center">
-            [
-           </div>
-
-           <div className="flex items-center">
-            <div className="flex   mr-[8px] ml-[2px]   h-[20px] w-[6px] text-[15px] font-light items-center">
-                P
-            </div>
-
-            <div className="flex   mr-[6px] -ml-[6px]    h-[33px] w-[6px] text-[30px] font-light items-center">
-                {'{'}
-            </div>
-
-            <div className="flex   mr-[8px] ml-[2px]   h-[20px] w-[1px] text-[20px] font-light items-center">
-                1
-            </div>
-
-            <div className="flex   mr-[8px] ml-[1px]   h-[10px] w-[6px] text-[20px] font-light items-center">
-                +
-            </div>
-
-            <div className="flex   mr-[8px] ml-[2px]   h-[20px] w-[6px] text-[25px] font-light items-center">
-                (
-            </div>
-
-            <div className="flex-col  ">
-                <div className=" h-[20px] w-[17px] ">R</div>
-                <div className=" h-0 text-[50px] font-thin flex justify-center ml-[1px] pt-[1px]  items-center">
-                    -
-                </div>
-                <div className=" h-[20px] w-[19px] ">n</div>
-            </div>
-
-            <div className="flex   mr-[6px] -ml-[6px]    h-[33px] w-[10px] text-[30px] font-light items-center">
-                )
-            </div>
-
-            <div className="flex   mr-[6px] -ml-[6px]    h-[33px] w-[6px] text-[30px] font-light items-center">
-                {'}'}
-            </div>
-
-
-        </div>
-
-        <div className=" flex-col justify-center -mt-[28px] mr-[3px] ">
-            <div className=" text-[10px] h-[15px] flex justify-center">
-                N
-            </div>
-        </div>
-
-        <div className="flex h-[42px] w-[8px] -ml-[3px] text-[39px] font-light items-center">
-            ]
-        </div>
-
-       
-
-
-        </div>
-        <div className=" flex   mr-[8px] ml-[2px]   h-[20px] w-[6px] text-[25px] font-light items-center ">
-         <div className="flex   mr-[4px] ml-[6px]   h-[10px] w-[6px] text-[15px] font-light items-center">-</div>
-         <div className="flex   mr-[6px] ml-[1px]   h-[20px] w-[6px] text-[15px] font-light items-center">P</div>
-       </div>
-       </div>
       <div className={"font-semibold"}>
-         <div>Where:</div>
-        <div>P = Principal amount</div>
-        <div>R = Rate of interest</div>
-        <div>n = Compounding frequency per year</div>
-        <div>N = Total compounding frequency for the entire period calculated as (n x T);n being the compounding frequency per annum and T being the time period in a number of years.</div>
+         <div>Here,F=  Maturity proceeds of the PPF</div>
+        <div>P = Annual instalments</div>
+        <div>n = Number of years </div>
+        <div>i = Rate of interest/100</div>
       </div>
       </>}/>
 
           <CollapsibleBox
-            heading={'Why should I use FundsIndia Compound Interest Calculator?'}
-            content={'FundsIndia CI Calculator is an intuitive and easy to use application that can save the time of manually calculating Compound interest which is a rather complicated calculation. It can visualise the interest with principal amount in an easily understandable manner.'}
+            heading={'When does my PPF investment mature?'}
+            content={'A Public Provident Fund (PPF) account matures after 15 years from the date of opening the account. The account can be extended for a block of 5 years at a time, after the maturity period, by submitting a request to the bank or post office where the account is held.'}
             isLast={true}
           />
         </div>
